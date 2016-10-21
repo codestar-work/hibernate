@@ -10,28 +10,28 @@ import org.springframework.beans.factory.annotation.*;
 
 @Configuration
 @EnableTransactionManagement
-public class Database {
+public class Hibernate {
 
-	@Value("${db.driver}")
+	@Value("${hibernate.driver}")
 	private String driver;
 
-	@Value("${db.password}")
+	@Value("${hibernate.password}")
 	private String password;
 
-	@Value("${db.url}")
+	@Value("${hibernate.url}")
 	private String url;
 
-	@Value("${db.username}")
+	@Value("${hibernate.username}")
 	private String user;
 
-	@Value("${db.dialect}")
+	@Value("${hibernate.dialect}")
 	private String dialect;
 
-	@Value("${db.packagesToScan}")
+	@Value("${hibernate.packagesToScan}")
 	private String folder;
 
 	@Bean
-	public DataSource dataSource() {
+	public DataSource buildDataSource() {
 		DriverManagerDataSource source = new DriverManagerDataSource();
 		source.setDriverClassName(driver);
 		source.setUrl(url);
@@ -43,14 +43,13 @@ public class Database {
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean session = new LocalSessionFactoryBean();
-		session.setDataSource(dataSource());
+		session.setDataSource(buildDataSource());
 		session.setPackagesToScan(folder);
 		Properties hibernate = new Properties();
-		hibernate.put("hibernate.dialect", dialect);
-		hibernate.put("hibernate.show_sql", "false");
+		hibernate.put("hibernate.dialect",      dialect);
+		hibernate.put("hibernate.show_sql",     "false");
 		hibernate.put("hibernate.hbm2ddl.auto", "false");
 		session.setHibernateProperties(hibernate);
-
 		return session;
 	}
 
@@ -60,5 +59,4 @@ public class Database {
 		m.setSessionFactory(sessionFactory().getObject());
 		return m;
 	}
-
 }
