@@ -2,12 +2,12 @@
 <%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Web</title>
-</head>
-<body>
-	<%
-		out.println("Hello JSP");	
-	%>
-</body>
+	<head>
+		<title>Web</title>
+	</head>
+	<body>
+		<%
+			out.print("Hello JSP");
+		%>
+	</body>
 </html>
