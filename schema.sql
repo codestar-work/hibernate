@@ -1,6 +1,6 @@
 create database icoffee;
-create user bill@'%' identified by 'p@ssword';
-grant all on icoffee.* to bill@'%';
+create user hibernate@'%' identified by 'p@ssword';
+grant all on icoffee.* to hibernate@'%';
 use icoffee;
 
 create table coffee (
