@@ -9,10 +9,11 @@ create table coffee (
 	size    char,
 	price   double
 );
-
-insert into coffee(name,size,price) values('Latte', 'T', 110);
-insert into coffee(name,size,price) values('Latte', 'G', 125);
-insert into coffee(name,size,price) values('Latte', 'V', 140);
-insert into coffee(name,size,price) values('Mocha', 'T', 125);
-insert into coffee(name,size,price) values('Mocha', 'G', 140);
-insert into coffee(name,size,price) values('Mocha', 'V', 155);
+insert into coffee(name,size,price) values('Latte', 'S', 100);
+insert into coffee(name,size,price) values('Latte', 'T', 115);
+insert into coffee(name,size,price) values('Latte', 'G', 130);
+insert into coffee(name,size,price) values('Latte', 'V', 145);
+insert into coffee(name,size,price) values('Mocha', 'S', 115);
+insert into coffee(name,size,price) values('Mocha', 'T', 130);
+insert into coffee(name,size,price) values('Mocha', 'G', 145);
+insert into coffee(name,size,price) values('Mocha', 'V', 160);
